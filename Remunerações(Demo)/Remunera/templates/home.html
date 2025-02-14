@@ -1,0 +1,39 @@
+{% extends 'client_base.html' %}
+
+{%block content%}
+<h2>Servidores</h2>
+    <div>
+        <form method="get"class="input-group mb-3">
+            <input type="text" name="q" class="form-control" placeholder="Pesquisar por nome ou matricula" aria-label="Pesquisar por nome ou matricula" aria-describedby="basic-addon2"  value="{{ search_query }}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="submit" >Pesquisar</button>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class = "card">
+        <ul class="list-group">
+            {% for servidor in servidores %}
+            <li class="list-group-item"><a href="{% url 'Remunera:competencias' pk=servidor.pk %}">{{ servidor.nome }} ({{ servidor.matricula }})</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <li class="pagination d-flex justify-content-center" ><span class="current" > &nbsp&nbsp&nbsp&nbsp&nbsp
+        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.&nbsp&nbsp&nbsp&nbsp&nbsp
+    </span></li>
+    <br>
+    <div class="pagination d-flex justify-content-center">  
+        <span class="d-flex step-links">  
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page=1">&laquo; Primeiro</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+            {% endif %}
+            
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próximo</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a></li>
+            {% endif %}
+        </span>
+    </div>
+    
+{%endblock content%} 

@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!-- NESSA DIV CONTÉM TODA AS INFORMAÇÕES NECESSÁRIAS DO USUÁRIO -->
+
+    <div class="img">
+        <i class="bi bi-person-circle"></i>
+    </div>
+
+<!--INPUTS DE INFORMAÇÃO-->
+    <div class="content">    
+        <div class="info-content">
+            <div>
+                <label for="nomeCompleto">Nome Completo: </label>
+                <input id="nomeCompleto" name="nomeCompleto" class="nameprov" type="text" placeholder="Nome Completo">
+            </div>
+    
+            <div>
+                <label for="matricula">Matricula: </label>
+                <input id="matricula" class="mat" type="text" placeholder="Matricula ">
+            </div>
+    
+            <div>
+                <label for="provimento">Provimento: </label>
+                <input id="provimento" name="provimento" class="nameprov" type="text" placeholder="provimento">
+            </div>
+        </div>
+    
+        <div class="info-content2">
+            <div>
+                <label for="cargoEfetivo">Cargo Efetivo: </label>
+                <input id="cargoEfetivo" type="text" placeholder="Cargo Efetivo">
+            </div>
+    
+            <div>
+                <label for="categoria">Categoria: </label>
+                <input id="categoria" type="text" placeholder="Categoria">
+            </div>
+        </div>
+    
+        <div class="info-content3">
+            <div>
+                <label for="lotacao">Lotação: </label>
+                <input id="lotacao" name="lotacao" class="nameprov" type="text" placeholder="Lotação">
+            </div>
+    
+            <div>
+                <label for="cargoFuncao">Cargo/Função: </label>
+                <input id="cargoFuncao" class="nameprov" type="text" placeholder="Cargo/Função">
+            </div>
+        </div>
+    </div>
+<!------------------->
+{% endblock content %}

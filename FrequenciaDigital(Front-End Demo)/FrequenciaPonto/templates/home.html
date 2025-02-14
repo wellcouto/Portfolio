@@ -1,0 +1,151 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!--CONFIRMAÇÃO DE ASSINATURA -->
+    <div class="conteudo">
+        <div class="assinatura">
+            <p>DATA - DIA</p>
+            <p>ENTRADA</p>
+            <p class="digitalmente">ASSINATURA</p>
+            <p class="saida">SAÍDA</p>
+            <p></p>
+        </div>
+
+        <div id="infoDaysContainer">
+            <div class="info-day">
+                <p>01/09 - Seg</p>
+                <p class="time" contenteditable="false">12:00</p>
+                <p class="digitalmente">Assinado Digitalmente</p>
+                <p class="time" contenteditable="false">19:00</p>
+                <div class="edit-out-info">
+                    <button title="Editar" onclick="abrirPopupEdicao(this)">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button title="Deletar" onclick="abrirPopupDeletar()">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="popupDeletar" class="popup-delete">
+            <div class="popup-exc">
+                <h2>Tem certeza que deseja exluir este item ?</h2>
+                <button class="btn-del" title="Deletar" onclick="deletarInfoDay(this)">Deletar</button>
+                <button onclick="fecharPopup('popupDeletar')">Cancelar</button>
+            </div>
+        </div>
+
+
+        <div id="popupEdicao" class="popup-edit">
+            <div class="popup-edi">
+                <h2>Editar Horário</h2>
+                <label for="novoHorarioEntrada">Mude o horário de entrada:</label>
+                <input type="time" id="novoHorarioEntrada" placeholder="Novo Horário de Entrada">
+                <label for="novoHorarioSaida">Mude o horário de saída:</label>
+                <input type="time" id="novoHorarioSaida" placeholder="Novo Horário de Saída">
+                <button onclick="confirmarEdicao(this.parentElement)">Salvar</button>
+                <button onclick="fecharPopup('popupEdicao')">Cancelar</button>
+            </div>
+        </div>
+
+            <div class="mobile" hidden>
+                <p class="info2">Dia/Mês</p>
+                <p></p>
+                <p class="info2">Entrada<br>/Saída</p>
+            </div>
+
+            <div class="info-mobile" hidden>
+                <p>03/10</p>
+                <p>Assinado</p>
+                <p>10:00<br>/16:00</p>
+                <div class="edit-out-info">
+                    <a href=""><i class="bi bi-pencil-square"></i></a>
+                    <a href=""><i class="bi bi-trash3"></i></a>
+                </div>
+            </div>
+    </div>
+<!------->
+
+<!-- CALENDÁRIO -->
+    <div class="days">
+            <div class="calendar">
+                <h1 id="currentMonth"></h1>
+                <div class="day">Hoje</div>
+                <div id="currentDate" class="date"></div>
+                <div id="currentDayOfWeek" class="day-of-week"></div>
+            </div>
+    </div>
+
+<!-------->
+
+<!-- MARCAR FREQUÊNCIA-->
+    <button class="markup_button" id="openBtn" title="Registrar Frequência Diária">
+                <i class="bi bi-plus-circle"></i><br>
+                Novo Registro
+    </button>
+<!--------->
+
+<!-- POPUPS -->
+
+    <div id="popup" class="popup">
+        <div class="popup-content" id="popup-content">
+            <span id="closeBtn" class="fechar">
+                <i class="bi bi-x-lg"></i>
+            </span>
+            <h2>Registre seu horário abaixo</h2><br>
+            
+            <div class="time-entry">
+                <label for="timePicker">Dia atual para registrar o ponto:</label>
+                <input type="date" id="timePicker" oninput="verificarPreenchimento()">
+            </div>
+
+            <br><br>
+
+            <div class="time-entry">
+                <label for="horaEntrada">Registrar horário de entrada:</label>
+                <input type="time" id="horaEntrada" oninput="verificarPreenchimento()">
+            </div>
+            <div class="time-entry">
+                <label for="horaSaida">Registrar horário de saída:</label>
+                <input type="time" id="horaSaida" oninput="verificarPreenchimento()">
+            </div>
+
+            <br><br>
+
+            <button id="saveButton" onclick="saveTime()" class="centered-button" style="display: none">Salvar</button>
+        </div>
+    </div>
+
+
+    <div id="confirmationPopup" class="confirmation-popup">
+            <div class="confirmation-content">
+                {% load static %}
+                <h2>Frequência registrada com sucesso!</h2>
+                <br>
+                <img src="{% static 'images/404-tick.png' %}" alt="img">
+            </div>
+    </div>
+
+    <script src="{% static 'script/main.js' %}">
+
+        document.getElementById("btnOpenPopup").addEventListener("click", function () {
+            document.getElementById("customConfirmationPopup").style.display = "block";
+        });
+        
+        document.getElementById("btnCancelDelete").addEventListener("click", function () {
+            document.getElementById("customConfirmationPopup").style.display = "none";
+        });
+        
+        document.getElementById("btnConfirmDelete").addEventListener("click", function () {
+        
+            document.getElementById("customConfirmationPopup").style.display = "none";
+        });
+        
+
+
+    </script>
+ <!---------------->
+{% endblock content %}

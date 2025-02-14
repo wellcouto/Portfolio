@@ -1,0 +1,113 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!-- PAINEL DE CONTROLE DOS GESTORES -->
+
+<div class="conteudo">
+    <div class="nome-setor">
+        <header>SEPAG</header>
+    </div>
+
+<!-- INPUT RESPONSÁVEL POR SELECIONAR E BOTÃO DE GERAR RELATÓRIO -->
+
+    <div class="selectionContainer">
+        <label for="selectAllCheckbox" title="Clique para selecionar todos os servidores">
+            <input type="checkbox" id="selectAllCheckbox" class="checkboxToggle" hidden>
+            <i class="bi bi-check2-square"></i>
+            Selecionar todos
+        </label>
+        <button title="Gerar relatório" class="btn-relatorio" onclick="mostrarPopupRelatorio()">Gerar Relatório</button>
+    </div>
+<!--------->
+
+<!-- DIV DE SERVIDORES DO SETOR -->
+
+    <div class="edit-user">
+        <input type="checkbox" class="otherCheckbox">
+        <span><button onclick="showCustomPopup()" title="Clique para Visualizar informações">Fulano de Tal</button></span>
+        <p>Matricula: 67678</p>
+    </div>
+<!------------>
+
+<!--POPUP RESPONSÁVEL POR EXIBIR AS INFORMAÇÕES DOS SERVIDORES -->
+    
+    <div class="customPopup" id="customPopupId">
+        <div class="customPopupContent">
+            <div class="custom-info-user">
+                <p>Servidor: Fulano de Tal</p>
+                <p>Matricula: 67678</p>
+            </div>
+
+            <div class="info-user-content">
+                <p>01/09 - Seg</p>
+                <p>13:00</p>
+                <p>Assinado Digitalmente</p>
+                <p>19:00</p>
+            </div>
+            <span class="closeButton" onclick="closeCustomPopup()" title="Fechar">X</span>
+        </div>
+    </div>
+<!----------->
+</div>
+
+<!--DIV LATERAL RESPONSÁVEL POR FAZER O DOWNLOAD DO RELATÓRIO-->
+    <div class="relatorio">
+        <header>Relatório:</header>
+        <button class="btnReport">
+            <a href="#" title="Baixar Relatório">relatorio_mesal_09_23.pdf
+                <i class="bi bi-download"></i>
+            </a>
+        </button>
+    </div>
+<!------------>
+
+<!--DIV PARA VISUALIZAÇÃO DE FERIADOS OU ALGO DO TIPO -->
+
+    <div class="obs">
+        <header>Observações:</header>
+        <p>AMD 202/2023 - 04/09/2023
+        </p>
+    </div>
+
+<!--POPUP RESPONSÁVEL PARA A GERAÇÃO DO RELATÓRIO-->
+
+    <div class="reportPopup" id="reportPopupId" style="display: none;">
+        <div class="reportPopupContent">
+        <h1>Gerando relatório...</h1>
+        <!-- Animação de loading -->
+        <div class="loaderContainer">
+            <div class="loader"></div>
+        </div>
+        </div>
+    </div>
+
+<!--POPUP RESONSÁVEL PELA CONFIRMAÇÃO DE GERAÇÃO DO RELATÓRIO -->
+
+    <div class="reportPopup" id="reportGeradoPopup" style="display: none;">
+        <div class="reportPopupContent">
+            {% load static %}
+        <span class="close" onclick="fechaPopup()" title="Fechar">
+            <i class="bi bi-x-lg"></i>
+        </span>
+        <h1>Relatório Gerado com sucesso!</h1>
+        <img src="{% static 'images/404-tick.png' %}">
+        </div>
+    </div>
+<!--------------->
+
+<!--SCRIPT FEITO NO HTML PELO DJANGO NÃO RECONHECER O SCRIPT (OBRIGADO DJANGO :))-->
+<script>
+
+    document.getElementById('selectAllCheckbox').addEventListener('change', function() {
+        let otherCheckboxes = document.querySelectorAll('.otherCheckbox');
+        for (let checkbox of otherCheckboxes) {
+            checkbox.checked = this.checked;
+        }
+    });
+
+</script>
+<!---------------->
+
+
+{% endblock content %}
