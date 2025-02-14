@@ -1,0 +1,28 @@
+{% extends 'main.html'%}
+
+{% block content%}
+<div class="container">
+    <div class="serv-info">
+        {% if request.method == 'GET' %}
+        <p>Matricula: {{ funcionario.matricula }}</p>
+        <p>Nome:{{ funcionario.nome}} </p>
+        <p>Cargo: {{ funcionario.cargo }}</p>
+        <p>Situação: {{ funcionario.situacao }}</p>
+        <!-- Exiba outros campos do seu modelo aqui -->
+
+        {% else %}
+        <p>Nenhum objeto encontrado com o ID informado.</p>
+        {% endif %}
+    </div>
+
+    <div class="comp-set">
+        <h1>NADA CONSTA</h1>
+        <ul>
+            {% for atribuicao in atribuicoes %}
+            <li>{{ atribuicao.item.nome }} - {{atribuicao.status_item}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}

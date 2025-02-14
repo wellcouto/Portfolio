@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/main1.css' %}">
+    <title>Nada consta</title>
+</head>
+<body>
+    <nav>
+        <span><a href="{% url 'home' %}">Buscar</a></span>
+        <span><a href="/">Logout</a></span>
+    </nav>
+
+    <div class="container-home">
+        <h3>Buscar Matrícula:</h3>
+        <form action= "{% url 'resultado-matricula' %}" method="get">
+            <input type="text" name="matricula"placeholder="Insira a Matrícula">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="serv-info">
+            {% if request.method == 'POST' %}
+            <p>Matricula: {{ servidor_att.matricula }}</p>
+            <p>Nome:{{ servidor_att.nome}} </p>
+            <p>Cargo: {{ servidor_att.cargo }}</p>
+            <p>Item Devolvido: {{ servidor_att.item_devolvido.status_do_item }}</p>
+            <!-- Exiba outros campos do seu modelo aqui -->
+            {% elif resultado %}
+    
+            <p>Matricula: {{ resultado.matricula }}</p>
+            <p>Nome:{{ resultado.nome}} </p>
+            <p>Cargo: {{ resultado.cargo }}</p>
+            <p>Item Devolvido: {{ resultado.item_devolvido.status_do_item }}</p>
+    
+            {% else %}
+            <p>Nenhum objeto encontrado com o ID informado.</p>
+            {% endif %}
+        </div>
+    
+        <div class="comp-set">
+            <h1>Editar Item</h1>
+            <form method="POST" action="">
+            {% csrf_token %}
+            {{ resultado.item_devolvido.nome}}
+            {{ form.as_p }}
+            <input type="hidden" name="item_devolvido" value="{{ resultado.item_devolvido.pk }}">
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

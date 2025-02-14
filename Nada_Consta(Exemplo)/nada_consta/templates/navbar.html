@@ -1,0 +1,9 @@
+{% comment %} {% load custom_tags %} {% endcomment %}
+<nav>
+    <span><a href="{% url 'home' %}">Buscar</a></span>
+    {% comment %} {% if user|has_group:'SEPAG' %}
+        <span><a href="{% url 'sepag' %}">SEPAG</a></span>
+    {% endif %} {% endcomment %}
+    <span style="color: #FFFFFF" ><p>Olá, {{ user.username }}!</p></span>
+    <span><a href="{% url 'logout' %}">Logout</a></span>
+</nav>

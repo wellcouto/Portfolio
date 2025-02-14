@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load custom_tags %}
+
+{% block content %}
+
+<body>
+    <div class="container-home">
+        <h1>Buscar Matrícula:</h1>
+
+        {% if user|has_group:'SEPAG' %}
+            <form action= "{% url 'sepag' %}" method="GET">
+            
+                <input type="text" name="matricula"placeholder="Insira a Matrícula" required><br><br>
+                <button type="submit">Buscar</button>
+            </form>
+        {%else%}
+            <form action= "{% url 'resultado-matricula' %}" method="GET">
+            
+                <input type="text" name="matricula"placeholder="Insira a Matrícula" required><br><br>
+                <button type="submit">Buscar</button>
+            </form>
+        {% endif %}
+        
+    </div>
+</body>
+{% endblock content %}
+

@@ -1,0 +1,79 @@
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.bak
+
+# Ambientes virtuais do Python
+venv/
+.env
+*.env
+
+# Dependências de pacotes (pode ser gerado novamente)
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Arquivos de migração (exceto __init__.py)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Arquivos estáticos gerados
+staticfiles/
+media/
+
+# Arquivos de compilação e build
+dist/
+build/
+out/
+bin/
+obj/
+
+# Banco de dados local (SQLite)
+*.sqlite3
+db.sqlite3-journal
+*.db
+*.db-journal
+
+# Binários e compilação
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# Arquivos temporários do Visual Studio
+.vscode/
+.vs/
+*.suo
+*.user
+
+# Diretórios do Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+android/.gradle/
+ios/Pods/
+
+
+# Dependências do Node.js
+node_modules/
+
+# Builds e arquivos temporários
+dist/
+build/
+
+# Cache do Yarn e npm
+.yarn/
+.yarn-cache/
+.npm/
+
+# Logs
+npm-debug.log
+yarn-debug.log
