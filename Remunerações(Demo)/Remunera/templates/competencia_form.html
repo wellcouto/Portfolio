@@ -1,0 +1,15 @@
+{% extends 'client_base.html' %}
+
+{%block content%}
+<h1>{% if not upremuneraserv.id %}Nova Competência{% else %}Editar Competência{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+        {% if upremuneraserv.id %}
+            <a href="{% url 'Remunera:competencias' pk=upremuneraserv.servidor_k.pk %}"><button type="button">Cancelar</button></a>
+        {%else%}
+            <a><input type=button value="Voltar" onClick="javascript:history.go(-1);"></a>
+        {% endif %}
+    </form>
+{%endblock content%} 

@@ -1,0 +1,120 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <!-- DIV PRINCIPAL QUE AGRUPA TODOS OS CONTEÚDOS DOS TEMPLATES -->
+    <div class="conteudo"> 
+        
+    <!--MENU ANUAL DE FREQUÊNCIAS REALIZADAS-->
+        <ul class="year-menu">
+            <label for="toggle" title="Visualizar Frequências de outros meses">
+                <input type="checkbox" id="toggle" class="toggle-checkbox">
+                <li id="ano" class="year-title" onclick="toggleMonths()">
+                    <i class="bi bi-arrow-right-circle"></i>
+                    <p>2023</p>
+                    <h3>h</h3>
+                </li>
+            </label>
+
+            <div id="months">
+                <li>
+                    <p>Janeiro</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Fevereiro</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Março</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Abril</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Maio</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Junho</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Julho</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Agosto</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Setembro</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Outubro</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Novembro</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+
+                <li>
+                    <p>Dezembro</p>
+                    <button title="Baixar PDF">
+                        Baixar Folha
+                        <i class="bi bi-file-earmark-pdf"></i>
+                    </button>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+<!--------------->
+{% endblock content %}

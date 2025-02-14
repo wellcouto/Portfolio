@@ -1,0 +1,48 @@
+{% extends 'client_base.html' %}
+
+{%block content%}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Abrir Modal
+  </button>
+  
+  <!-- O Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Conteúdo do Modal -->
+        <div class="modal-header">
+          <h4 class="modal-title">Título do Modal</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <div class="modal-body">
+          <p>Conteúdo do Modal.</p>
+        </div>
+  
+        <!-- Rodapé do Modal -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar Mudanças</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">Item 1</li>
+    <li class="list-group-item">Item 2</li>
+    <li class="list-group-item">Item 3</li>
+  </ul>
+
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Mostrar/Ocultar Conteúdo
+  </button>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      Conteúdo a ser mostrado/oculto.
+    </div>
+  </div>
+
+
+{%endblock content%} 

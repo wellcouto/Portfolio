@@ -1,0 +1,13 @@
+{% extends 'client_base.html' %}
+
+{%block content%}
+    <h1>Confirmar Exclusão</h1>
+    <p>Tem certeza de que deseja excluir a competência de "{{ object.servidor_k}}" ?</p>
+    <h4>Competência a ser excluida:</h4>
+    <p> Data:"{{ object.competencia}}<br>   Valor: R$ {{ object.valor}}"</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, Excluir</button>
+    </form>
+    <a href="{% url 'Remunera:competencias' pk=object.servidor_k.pk %}"><button type="button">Cancelar</button></a>
+{%endblock content%} 

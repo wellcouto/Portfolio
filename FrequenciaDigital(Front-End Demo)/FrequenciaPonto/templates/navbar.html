@@ -1,0 +1,30 @@
+<!--MAIN NAVBAR-->
+
+<nav>
+
+    <!-- TODO O CONTEÚDO DA NAVBAR-->
+    <input type="checkbox" id="menu-toggle" hidden>
+    <label for="menu-toggle" class="menu-icon" title="Mais informações">&#9776;</label>
+    <div class="menu-content">
+        <ul>
+            <li><a href="{% url 'home' %}" title="Frequências Atuais">MÊS ATUAL</a></li>
+            <li><a href="{% url 'mes_anterior' %}" title="Visualizar informações mensais passadas">MESES ANTERIORES</a></li>
+            <li><a href="{% url 'ferias' %}" title="Visualização de férias e afastamentos">FÉRIAS E AFASTAMENTOS</a></li>
+            <li><a href="{% url 'gestao' %}" title="Apenas para Gestores">GESTÃO DO SETOR</a></li>
+            <li><a href="{% url 'user' %}" >MEU PERFIL</a></li>
+        </ul>
+    </div>
+
+<!--------------->
+    <h2><a href="{% url 'home' %}">FREQUÊNCIA DIGITAL</a></h2>
+
+<!--LINK PARA A PÁGINA DO LOGIN DO SEI LÁ OQ -->
+    <div class="user-sair">
+        <button class="btn-sair" title="Sair da Página">
+            <a href="#">Sair</a>
+        </button>
+        <button title="Suas Informações" class="btn-info"><a href="{% url 'user' %}"><i class="bi bi-person-circle"></i></a></button>
+    </div>
+<!--------------->
+</nav>
+

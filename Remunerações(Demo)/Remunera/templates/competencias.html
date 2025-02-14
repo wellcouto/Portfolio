@@ -1,0 +1,18 @@
+{% extends 'client_base.html' %}
+
+{%block content%}
+    <div>
+        <h2>Competências de {{ remuneraserv.0.servidor_k.nome }}</h2>
+        <a href="{% url 'Remunera:competencia_criar' pk=remuneraserv.0.servidor_k.pk %}"><button type="button">Adicionar Competência</button></a>
+    </div>
+    
+    <div class = "card">
+        <ul class="list-group">
+            {% for competencia in remuneraserv %}
+                <li class="list-group-item">{{ competencia.competencia }} - R$ {{ competencia.valor }} <a href="{% url 'Remunera:competencia_editar' pk=competencia.pk %}">Editar</a> | <a href="{% url 'Remunera:competencia_deletar' pk=competencia.pk %}">Apagar</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+
+{%endblock content%} 
