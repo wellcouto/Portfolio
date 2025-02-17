@@ -39,9 +39,7 @@ db.sqlite3-journal
 *.db
 *.db-journal
 
-# Binários e compilação
-bin/
-obj/
+
 *.exe
 *.dll
 *.pdb
@@ -57,17 +55,12 @@ obj/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-build/
 android/.gradle/
 ios/Pods/
 
 
 # Dependências do Node.js
 node_modules/
-
-# Builds e arquivos temporários
-dist/
-build/
 
 # Cache do Yarn e npm
 .yarn/
